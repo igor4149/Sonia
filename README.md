@@ -11,4 +11,4 @@ results/demo - here you can find several examples of generated music-alike thing
 4.  Conversion from midi to wav uses soundfont, stored in results/soundfont - so your .mid and generated wav may sound differently (a bit tho).
 5.  If you wanna test training - `python3 train.py` - should work if you have tf and keras.
 ## TODO
-Random seed & argument parsing. requirements.txt (???)
+Argument parsing. requirements.txt (???)
