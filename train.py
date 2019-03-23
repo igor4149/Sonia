@@ -89,5 +89,6 @@ def main():
                         verbose=1,
                         callbacks=callbacks,
                         initial_epoch=epoch)
+    print("finished in", time.time() - start_time, " seconds")
 if __name__ == '__main__':
     main()

@@ -61,6 +61,10 @@ def load_model_from_checkpoint(model_dir='./model'):
     return model, epoch
 
 def main():
+    randomseed = int(input("Please enter the random seed. If 0 is entered, no seed will be used\n"))
+    if randomseed != 0:
+        np.random.seed(randomseed)
+        random.seed(randomseed)
     prime_files = [os.path.join('./datasets/music', m) for m in os.listdir('./datasets/music') if '.mid' in m]
     random.shuffle(prime_files)
     if not (os.path.isdir('./result')):
