@@ -6,8 +6,8 @@ results/demo - here you can find several examples of generated music-alike thing
 # How-to
 0.  **IMPORTANT:** `pip install pretty-midi`, `pip install midi2audio`, `sudo apt install fluidsynth`. Also make sure you have tf and keras available.
 1.  Clone repo then `cd Sonia`
-2.  `python3 generation.py` - then enter the random value for seed. Please be patient, this may take several minutes - that's ok.
-3.  Results are now stored in results - 10 .mid files and 10 .wav files for them.
+2.  `python3 generation.py` - then enter the random value for seed. If 0 is entered, 10 files would be generated. Otherwise only one file would be generated. Please be patient, this may take several minutes - that's ok.
+3.  Results are now stored in results - 1 or 10 .mid files and 1 or 10 .wav files for them.
 4.  Conversion from midi to wav uses soundfont, stored in results/soundfont - so your .mid and generated wav may sound differently (a bit tho).
 5.  If you wanna test training - `python3 train.py` - should work if you have tf and keras.
 ## TODO

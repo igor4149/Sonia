@@ -61,10 +61,13 @@ def load_model_from_checkpoint(model_dir='./model'):
     return model, epoch
 
 def main():
-    randomseed = int(input("Please enter the random seed. If 0 is entered, no seed will be used\n"))
+    samples_num = 1
+    randomseed = int(input("Please enter the random seed. If 0 is entered, no seed will be used and 10 samples will be generated.\nOtherwise, one sample would be generated. \n"))
     if randomseed != 0:
         np.random.seed(randomseed)
         random.seed(randomseed)
+    else:
+        samples_num = 10
     prime_files = [os.path.join('./datasets/music', m) for m in os.listdir('./datasets/music') if '.mid' in m]
     random.shuffle(prime_files)
     if not (os.path.isdir('./result')):
@@ -73,7 +76,7 @@ def main():
     frame_size = model.layers[0].get_input_shape_at(0)[1]
     seed_generator = misc.get_data_generator(prime_files)
     X, y = next(seed_generator)
-    generated = generate(model, X, frame_size, length=200, samples_num=10, instrument_name='Electric Piano 1')
+    generated = generate(model, X, frame_size, length=200, samples_num=samples_num, instrument_name='Electric Piano 2')
     for i, midi in enumerate(generated):
         file = os.path.join('./result', '{}.mid'.format(i + 1))
         midi.write(file.format(i + 1))
